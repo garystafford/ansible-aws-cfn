@@ -17,60 +17,214 @@
       "Type": "String",
       "Default": "t2.small",
       "AllowedValues": [
-        "t1.micro",
-        "t2.nano",
-        "t2.micro",
-        "t2.small",
-        "t2.medium",
-        "t2.large",
-        "m1.small",
-        "m1.medium",
-        "m1.large",
-        "m1.xlarge",
-        "m2.xlarge",
-        "m2.2xlarge",
-        "m2.4xlarge",
-        "m3.medium",
-        "m3.large",
-        "m3.xlarge",
-        "m3.2xlarge",
-        "m4.large",
-        "m4.xlarge",
-        "m4.2xlarge",
-        "m4.4xlarge",
-        "m4.10xlarge",
+        "M5.16xlarge",
+        "M5.8xlarge",
+        "M5a.16xlarge",
+        "M5a.8xlarge",
+        "M5d.16xlarge",
+        "M5d.8xlarge",
+        "R5.16xlarge",
+        "R5.8xlarge",
+        "R5a.16xlarge",
+        "R5a.8xlarge",
+        "R5d.16xlarge",
+        "R5d.8xlarge",
+        "a1.2xlarge",
+        "a1.4xlarge",
+        "a1.large",
+        "a1.medium",
+        "a1.xlarge",
         "c1.medium",
         "c1.xlarge",
-        "c3.large",
-        "c3.xlarge",
         "c3.2xlarge",
         "c3.4xlarge",
         "c3.8xlarge",
-        "c4.large",
-        "c4.xlarge",
+        "c3.large",
+        "c3.xlarge",
         "c4.2xlarge",
         "c4.4xlarge",
         "c4.8xlarge",
-        "g2.2xlarge",
-        "g2.8xlarge",
-        "r3.large",
-        "r3.xlarge",
-        "r3.2xlarge",
-        "r3.4xlarge",
-        "r3.8xlarge",
-        "i2.xlarge",
-        "i2.2xlarge",
-        "i2.4xlarge",
-        "i2.8xlarge",
-        "d2.xlarge",
+        "c4.large",
+        "c4.xlarge",
+        "c5.12xlarge",
+        "c5.18xlarge",
+        "c5.24xlarge",
+        "c5.2xlarge",
+        "c5.4xlarge",
+        "c5.9xlarge",
+        "c5.large",
+        "c5.metal",
+        "c5.xlarge",
+        "c5d.18xlarge",
+        "c5d.2xlarge",
+        "c5d.4xlarge",
+        "c5d.9xlarge",
+        "c5d.large",
+        "c5d.xlarge",
+        "c5n.18xlarge",
+        "c5n.2xlarge",
+        "c5n.4xlarge",
+        "c5n.9xlarge",
+        "c5n.large",
+        "c5n.xlarge",
+        "cc2.8xlarge",
+        "cr1.8xlarge",
         "d2.2xlarge",
         "d2.4xlarge",
         "d2.8xlarge",
-        "hi1.4xlarge",
+        "d2.xlarge",
+        "f1.16xlarge",
+        "f1.2xlarge",
+        "f1.4xlarge",
+        "g2.2xlarge",
+        "g2.8xlarge",
+        "g3.16xlarge",
+        "g3.4xlarge",
+        "g3.8xlarge",
+        "g3s.xlarge",
+        "h1.16xlarge",
+        "h1.2xlarge",
+        "h1.4xlarge",
+        "h1.8xlarge",
         "hs1.8xlarge",
-        "cr1.8xlarge",
-        "cc2.8xlarge",
-        "cg1.4xlarge"
+        "i2.2xlarge",
+        "i2.4xlarge",
+        "i2.8xlarge",
+        "i2.xlarge",
+        "i3.16xlarge",
+        "i3.2xlarge",
+        "i3.4xlarge",
+        "i3.8xlarge",
+        "i3.large",
+        "i3.xlarge",
+        "i3en.12xlarge",
+        "i3en.24xlarge",
+        "i3en.2xlarge",
+        "i3en.3xlarge",
+        "i3en.6xlarge",
+        "i3en.large",
+        "i3en.xlarge",
+        "m1.large",
+        "m1.medium",
+        "m1.small",
+        "m1.xlarge",
+        "m2.2xlarge",
+        "m2.4xlarge",
+        "m2.xlarge",
+        "m3.2xlarge",
+        "m3.large",
+        "m3.medium",
+        "m3.xlarge",
+        "m4.10xlarge",
+        "m4.16xlarge",
+        "m4.2xlarge",
+        "m4.4xlarge",
+        "m4.large",
+        "m4.xlarge",
+        "m5.12xlarge",
+        "m5.24xlarge",
+        "m5.2xlarge",
+        "m5.4xlarge",
+        "m5.large",
+        "m5.metal",
+        "m5.xlarge",
+        "m5a.12xlarge",
+        "m5a.24xlarge",
+        "m5a.2xlarge",
+        "m5a.4xlarge",
+        "m5a.large",
+        "m5a.xlarge",
+        "m5ad.12xlarge",
+        "m5ad.24xlarge",
+        "m5ad.2xlarge",
+        "m5ad.4xlarge",
+        "m5ad.large",
+        "m5ad.xlarge",
+        "m5d.12xlarge",
+        "m5d.24xlarge",
+        "m5d.2xlarge",
+        "m5d.4xlarge",
+        "m5d.large",
+        "m5d.metal",
+        "m5d.xlarge",
+        "p2.16xlarge",
+        "p2.8xlarge",
+        "p2.xlarge",
+        "p3.16xlarge",
+        "p3.2xlarge",
+        "p3.8xlarge",
+        "p3dn.24xlarge",
+        "r3.2xlarge",
+        "r3.4xlarge",
+        "r3.8xlarge",
+        "r3.large",
+        "r3.xlarge",
+        "r4.16xlarge",
+        "r4.2xlarge",
+        "r4.4xlarge",
+        "r4.8xlarge",
+        "r4.large",
+        "r4.xlarge",
+        "r5.12xlarge",
+        "r5.24xlarge",
+        "r5.2xlarge",
+        "r5.4xlarge",
+        "r5.large",
+        "r5.xlarge",
+        "r5a.12xlarge",
+        "r5a.24xlarge",
+        "r5a.2xlarge",
+        "r5a.4xlarge",
+        "r5a.large",
+        "r5a.xlarge",
+        "r5ad.12xlarge",
+        "r5ad.24xlarge",
+        "r5ad.2xlarge",
+        "r5ad.4xlarge",
+        "r5ad.large",
+        "r5ad.xlarge",
+        "r5d.12xlarge",
+        "r5d.24xlarge",
+        "r5d.2xlarge",
+        "r5d.4xlarge",
+        "r5d.large",
+        "r5d.xlarge",
+        "t1.micro",
+        "t2.2xlarge",
+        "t2.large",
+        "t2.medium",
+        "t2.micro",
+        "t2.nano",
+        "t2.small",
+        "t2.xlarge",
+        "t3.2xlarge",
+        "t3.large",
+        "t3.medium",
+        "t3.micro",
+        "t3.nano",
+        "t3.small",
+        "t3.xlarge",
+        "t3a.2xlarge",
+        "t3a.large",
+        "t3a.medium",
+        "t3a.micro",
+        "t3a.nano",
+        "t3a.small",
+        "t3a.xlarge",
+        "x1.16xlarge",
+        "x1.32xlarge",
+        "x1e.16xlarge",
+        "x1e.2xlarge",
+        "x1e.32xlarge",
+        "x1e.4xlarge",
+        "x1e.8xlarge",
+        "x1e.xlarge",
+        "z1d.12xlarge",
+        "z1d.2xlarge",
+        "z1d.3xlarge",
+        "z1d.6xlarge",
+        "z1d.large",
+        "z1d.xlarge"
       ],
       "ConstraintDescription": "must be a valid EC2 instance type."
     },
@@ -89,7 +243,9 @@
       "ConstraintDescription": "must be a valid IP CIDR range of the form x.x.x.x/x."
     },
     "TagName": {
-      "Description": "'Name' tag value",
+      "Description": ""
+      Name
+      " tag value",
       "Type": "String",
       "MinLength": "1",
       "MaxLength": "18",
@@ -97,7 +253,9 @@
       "ConstraintDescription": "must be between 1-18 characters."
     },
     "TagGroup": {
-      "Description": "'Group' tag value",
+      "Description": ""
+      Group
+      " tag value",
       "Type": "String",
       "MinLength": "1",
       "MaxLength": "18",
@@ -106,65 +264,6 @@
     }
   },
   "Mappings": {
-    "Region2Examples": {
-      "us-east-1": {
-        "Examples": "https://s3.amazonaws.com/cloudformation-examples-us-east-1"
-      },
-      "us-west-2": {
-        "Examples": "https://s3-us-west-2.amazonaws.com/cloudformation-examples-us-west-2"
-      },
-      "us-west-1": {
-        "Examples": "https://s3-us-west-1.amazonaws.com/cloudformation-examples-us-west-1"
-      },
-      "eu-west-1": {
-        "Examples": "https://s3-eu-west-1.amazonaws.com/cloudformation-examples-eu-west-1"
-      },
-      "eu-west-2": {
-        "Examples": "https://s3-eu-west-2.amazonaws.com/cloudformation-examples-eu-west-2"
-      },
-      "eu-west-3": {
-        "Examples": "https://s3-eu-west-3.amazonaws.com/cloudformation-examples-eu-west-3"
-      },
-      "eu-north-1": {
-        "Examples": "https://s3-eu-north-1.amazonaws.com/cloudformation-examples-eu-north-1"
-      },
-      "eu-central-1": {
-        "Examples": "https://s3-eu-central-1.amazonaws.com/cloudformation-examples-eu-central-1"
-      },
-      "ap-southeast-1": {
-        "Examples": "https://s3-ap-southeast-1.amazonaws.com/cloudformation-examples-ap-southeast-1"
-      },
-      "ap-northeast-1": {
-        "Examples": "https://s3-ap-northeast-1.amazonaws.com/cloudformation-examples-ap-northeast-1"
-      },
-      "ap-northeast-2": {
-        "Examples": "https://s3-ap-northeast-2.amazonaws.com/cloudformation-examples-ap-northeast-2"
-      },
-      "ap-northeast-3": {
-        "Examples": "https://s3-ap-northeast-3.amazonaws.com/cloudformation-examples-ap-northeast-3"
-      },
-      "ap-southeast-2": {
-        "Examples": "https://s3-ap-southeast-2.amazonaws.com/cloudformation-examples-ap-southeast-2"
-      },
-      "ap-south-1": {
-        "Examples": "https://s3-ap-south-1.amazonaws.com/cloudformation-examples-ap-south-1"
-      },
-      "us-east-2": {
-        "Examples": "https://s3-us-east-2.amazonaws.com/cloudformation-examples-us-east-2"
-      },
-      "ca-central-1": {
-        "Examples": "https://s3-ca-central-1.amazonaws.com/cloudformation-examples-ca-central-1"
-      },
-      "sa-east-1": {
-        "Examples": "https://s3-sa-east-1.amazonaws.com/cloudformation-examples-sa-east-1"
-      },
-      "cn-north-1": {
-        "Examples": "https://s3.cn-north-1.amazonaws.com.cn/cloudformation-examples-cn-north-1"
-      },
-      "cn-northwest-1": {
-        "Examples": "https://s3.cn-northwest-1.amazonaws.com.cn/cloudformation-examples-cn-northwest-1"
-      }
-    },
     "AWSInstanceType2Arch": {
       "t1.micro": {
         "Arch": "HVM64"
@@ -326,167 +425,6 @@
         "Arch": "HVM64"
       }
     },
-    "AWSInstanceType2NATArch": {
-      "t1.micro": {
-        "Arch": "NATHVM64"
-      },
-      "t2.nano": {
-        "Arch": "NATHVM64"
-      },
-      "t2.micro": {
-        "Arch": "NATHVM64"
-      },
-      "t2.small": {
-        "Arch": "NATHVM64"
-      },
-      "t2.medium": {
-        "Arch": "NATHVM64"
-      },
-      "t2.large": {
-        "Arch": "NATHVM64"
-      },
-      "m1.small": {
-        "Arch": "NATHVM64"
-      },
-      "m1.medium": {
-        "Arch": "NATHVM64"
-      },
-      "m1.large": {
-        "Arch": "NATHVM64"
-      },
-      "m1.xlarge": {
-        "Arch": "NATHVM64"
-      },
-      "m2.xlarge": {
-        "Arch": "NATHVM64"
-      },
-      "m2.2xlarge": {
-        "Arch": "NATHVM64"
-      },
-      "m2.4xlarge": {
-        "Arch": "NATHVM64"
-      },
-      "m3.medium": {
-        "Arch": "NATHVM64"
-      },
-      "m3.large": {
-        "Arch": "NATHVM64"
-      },
-      "m3.xlarge": {
-        "Arch": "NATHVM64"
-      },
-      "m3.2xlarge": {
-        "Arch": "NATHVM64"
-      },
-      "m4.large": {
-        "Arch": "NATHVM64"
-      },
-      "m4.xlarge": {
-        "Arch": "NATHVM64"
-      },
-      "m4.2xlarge": {
-        "Arch": "NATHVM64"
-      },
-      "m4.4xlarge": {
-        "Arch": "NATHVM64"
-      },
-      "m4.10xlarge": {
-        "Arch": "NATHVM64"
-      },
-      "c1.medium": {
-        "Arch": "NATHVM64"
-      },
-      "c1.xlarge": {
-        "Arch": "NATHVM64"
-      },
-      "c3.large": {
-        "Arch": "NATHVM64"
-      },
-      "c3.xlarge": {
-        "Arch": "NATHVM64"
-      },
-      "c3.2xlarge": {
-        "Arch": "NATHVM64"
-      },
-      "c3.4xlarge": {
-        "Arch": "NATHVM64"
-      },
-      "c3.8xlarge": {
-        "Arch": "NATHVM64"
-      },
-      "c4.large": {
-        "Arch": "NATHVM64"
-      },
-      "c4.xlarge": {
-        "Arch": "NATHVM64"
-      },
-      "c4.2xlarge": {
-        "Arch": "NATHVM64"
-      },
-      "c4.4xlarge": {
-        "Arch": "NATHVM64"
-      },
-      "c4.8xlarge": {
-        "Arch": "NATHVM64"
-      },
-      "g2.2xlarge": {
-        "Arch": "NATHVMG2"
-      },
-      "g2.8xlarge": {
-        "Arch": "NATHVMG2"
-      },
-      "r3.large": {
-        "Arch": "NATHVM64"
-      },
-      "r3.xlarge": {
-        "Arch": "NATHVM64"
-      },
-      "r3.2xlarge": {
-        "Arch": "NATHVM64"
-      },
-      "r3.4xlarge": {
-        "Arch": "NATHVM64"
-      },
-      "r3.8xlarge": {
-        "Arch": "NATHVM64"
-      },
-      "i2.xlarge": {
-        "Arch": "NATHVM64"
-      },
-      "i2.2xlarge": {
-        "Arch": "NATHVM64"
-      },
-      "i2.4xlarge": {
-        "Arch": "NATHVM64"
-      },
-      "i2.8xlarge": {
-        "Arch": "NATHVM64"
-      },
-      "d2.xlarge": {
-        "Arch": "NATHVM64"
-      },
-      "d2.2xlarge": {
-        "Arch": "NATHVM64"
-      },
-      "d2.4xlarge": {
-        "Arch": "NATHVM64"
-      },
-      "d2.8xlarge": {
-        "Arch": "NATHVM64"
-      },
-      "hi1.4xlarge": {
-        "Arch": "NATHVM64"
-      },
-      "hs1.8xlarge": {
-        "Arch": "NATHVM64"
-      },
-      "cr1.8xlarge": {
-        "Arch": "NATHVM64"
-      },
-      "cc2.8xlarge": {
-        "Arch": "NATHVM64"
-      }
-    },
     "AWSRegionArch2AMI": {
       "us-east-1": {
         "HVM64": "ami-0080e4c5bc078760e",
@@ -607,10 +545,10 @@
       },
       "UpdatePolicy": {
         "AutoScalingRollingUpdate": {
-          "MinInstancesInService": "1",
-          "MaxBatchSize": "1",
+          "MinInstancesInService": 1,
+          "MaxBatchSize": 1,
           "PauseTime": "PT15M",
-          "WaitOnResourceSignals": "true"
+          "WaitOnResourceSignals": true
         }
       }
     },
@@ -774,7 +712,7 @@
         "LoadBalancerArn": {
           "Ref": "ApplicationLoadBalancer"
         },
-        "Port": "80",
+        "Port": 80,
         "Protocol": "HTTP"
       }
     },
@@ -799,8 +737,8 @@
         "SecurityGroupIngress": [
           {
             "IpProtocol": "tcp",
-            "FromPort": "80",
-            "ToPort": "80",
+            "FromPort": 80,
+            "ToPort": 80,
             "SourceSecurityGroupId": {
               "Fn::Select": [
                 0,
@@ -815,8 +753,8 @@
           },
           {
             "IpProtocol": "tcp",
-            "FromPort": "22",
-            "ToPort": "22",
+            "FromPort": 22,
+            "ToPort": 22,
             "CidrIp": {
               "Ref": "SSHLocation"
             }
