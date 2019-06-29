@@ -257,6 +257,14 @@
       "MaxLength": "18",
       "Default": "webservers",
       "ConstraintDescription": "must be between 1-18 characters."
+    },
+    "TagEnv": {
+      "Description": "'Environment' tag value",
+      "Type": "String",
+      "MinLength": "1",
+      "MaxLength": "18",
+      "Default": "development",
+      "ConstraintDescription": "must be between 1-18 characters."
     }
   },
   "Mappings": {
@@ -529,6 +537,13 @@
             "Key": "Group",
             "Value": {
               "Ref": "TagGroup"
+            },
+            "PropagateAtLaunch": true
+          },
+          {
+            "Key": "Environment",
+            "Value": {
+              "Ref": "TagEnv"
             },
             "PropagateAtLaunch": true
           }
