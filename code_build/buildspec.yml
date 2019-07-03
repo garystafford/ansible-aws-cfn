@@ -2,7 +2,7 @@ version: 0.2
 
 env:
   variables:
-    TEMPLATE: "ansible_cf_demo.json"
+    TEMPLATE: "cf_demo_compute.json"
     BUCKET_PATH: "gaystafford_cloud_formation/cf_demo/"
 phases:
   install:
