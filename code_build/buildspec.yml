@@ -18,3 +18,4 @@ phases:
   post_build:
     commands:
       - aws s3 cp $TEMPLATE s3://$BUCKET_PATH
+      - aws s3 ls s3://$BUCKET_PATH
