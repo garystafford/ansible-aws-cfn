@@ -10,7 +10,8 @@ phases:
       python: 3.7
   pre_build:
     commands:
-      - pip install cfn-lint
+      - python3.7 -m pip install --upgrade -r requirements.txt
+      - python3.7 -m pip list
   build:
     commands:
       - cfn-lint -t $TEMPLATE
