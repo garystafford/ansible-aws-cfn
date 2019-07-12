@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -xe
+
 export BUCKET_PATH
 
 for filename in ../templates/*.*;
