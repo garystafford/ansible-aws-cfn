@@ -3,6 +3,7 @@ version: 0.2
 env:
   variables:
     BUCKET_PATH: "gaystafford_cloud_formation/cf_demo/"
+
 phases:
   install:
     runtime-versions:
@@ -12,8 +13,7 @@ phases:
       - pip install --upgrade -r requirements.txt
   build:
     commands:
-      - ls -alh
-      - sh build.sh
+      - sh code_build/build.sh
   post_build:
     commands:
       - aws s3 ls s3://$BUCKET_PATH
