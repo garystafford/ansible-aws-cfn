@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -xe
+set -ex
 
 export BUCKET_PATH
 
