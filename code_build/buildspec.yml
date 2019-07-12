@@ -1,8 +1,8 @@
 version: 0.2
 
 env:
-  variables:
-    BUCKET_PATH: "gaystafford_cloud_formation/cf_demo/"
+  parameter-store:
+    BUCKET_PATH: "/anisble_demo/template_bucket"
 
 phases:
   install:
