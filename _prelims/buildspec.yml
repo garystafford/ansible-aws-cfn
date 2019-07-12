@@ -2,6 +2,7 @@ version: 0.2
 
 env:
   variables:
+    TEMPLATE: "cf_demo_compute.json"
     BUCKET_PATH: "gaystafford_cloud_formation/cf_demo/"
 phases:
   install:
@@ -15,7 +16,9 @@ phases:
       - pip list
   build:
     commands:
-      - sh ./build.sh
+      - cfn-lint -t $TEMPLATE
+      - aws cloudformation validate-template --template-body file://$TEMPLATE
   post_build:
     commands:
+      - aws s3 cp $TEMPLATE s3://$BUCKET_PATH
       - aws s3 ls s3://$BUCKET_PATH
