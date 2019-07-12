@@ -204,6 +204,9 @@ Resources:
       VpcId: !Ref VPC
 
 Outputs:
+  VpcRegion:
+    Description: A reference to the AWS Region the VPC is in
+    Value: !Ref "AWS::Region"
   VPC:
     Description: A reference to the created VPC
     Value: !Ref VPC
