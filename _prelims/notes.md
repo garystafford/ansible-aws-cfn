@@ -11,13 +11,15 @@ aws s3 cp bastion_cf_demo.json s3://gaystafford_cloud_formation/cf_demo/
 
 aws cloudformation validate-template --template-url https://s3.amazonaws.com/gaystafford_cloud_formation/cf_demo/bastion_cf_demo.json
 
-aws ssm get-parameter \
-  --name /anisble_demo/ansible_private_key
-
 aws ssm put-parameter \
   --name /anisble_demo/ansible_private_key \
-  --type String \
+  --type SecureString \
   --value file:///Users/garystafford/.ssh/ansible \
   --description "Private key for EC2 instances" \
   --overwrite
+
+aws ssm get-parameter \
+  --with-decryption \
+  --name "/anisble_demo/ansible_private_key" \
+  --query Parameter.Value
 ```
