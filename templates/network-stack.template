@@ -45,19 +45,13 @@ Resources:
         - Key: Name
           Value: !Ref EnvironmentName
 
-  VPCDefaultSecurityGroup:
-    Type: AWS::EC2::SecurityGroup
+  VPCDefaultSecurityGroupIngress:
+    Type: AWS::EC2::SecurityGroupIngress
     Properties:
       GroupId: !GetAtt [VPC, DefaultSecurityGroup]
-      SecurityGroupIngress:
-      - IpProtocol: tcp
-        FromPort: 22
-        ToPort: 22
-        CidrIp: 0.0.0.0/0
-      - IpProtocol: tcp
-        FromPort: 80
-        ToPort: 80
-        CidrIp: 0.0.0.0/0
+      IpProtocol: tcp
+      FromPort: 22
+      ToPort: 22
 
   InternetGateway:
     Type: AWS::EC2::InternetGateway
