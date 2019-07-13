@@ -45,7 +45,7 @@ Resources:
         - Key: Name
           Value: !Ref EnvironmentName
 
-  VPCDefaultSecurityGroupIngress1:
+  VpcDefaultSecurityGroupIngress1:
     Type: AWS::EC2::SecurityGroupIngress
     Properties:
       GroupId: !GetAtt VPC.DefaultSecurityGroup
@@ -54,7 +54,7 @@ Resources:
       FromPort: 22
       ToPort: 22
 
-  VPCDefaultSecurityGroupIngress1:
+  VpcDefaultSecurityGroupIngress1:
     Type: AWS::EC2::SecurityGroupIngress
     Properties:
       GroupId: !GetAtt VPC.DefaultSecurityGroup
@@ -230,7 +230,7 @@ Outputs:
     Description: A reference to the created VPC
     Value: !Ref VPC
 
-  VPCDefaultSecurityGroup:
+  VpcDefaultSecurityGroup:
     Description: Default VPC Security Group
     Value: !GetAtt VPC.DefaultSecurityGroup
 
