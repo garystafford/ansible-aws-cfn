@@ -45,6 +45,20 @@ Resources:
         - Key: Name
           Value: !Ref EnvironmentName
 
+  VPCDefaultSecurityGroupIngress:
+    Type: AWS::EC2::SecurityGroupIngress
+    Properties:
+      GroupId: !GetAtt [VPC, DefaultSecurityGroup]
+      SecurityGroupIngress:
+      - IpProtocol: tcp
+        FromPort: 22
+        ToPort: 22
+        CidrIp: 0.0.0.0/0
+      - IpProtocol: tcp
+        FromPort: 80
+        ToPort: 80
+        CidrIp: 0.0.0.0/0
+
   InternetGateway:
     Type: AWS::EC2::InternetGateway
     Properties:
@@ -207,6 +221,7 @@ Outputs:
   VpcRegion:
     Description: A reference to the AWS Region the VPC is in
     Value: !Ref "AWS::Region"
+
   VPC:
     Description: A reference to the created VPC
     Value: !Ref VPC
