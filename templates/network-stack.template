@@ -48,7 +48,7 @@ Resources:
   VPCDefaultSecurityGroupIngress:
     Type: AWS::EC2::SecurityGroupIngress
     Properties:
-      GroupId: !GetAtt [VPC, DefaultSecurityGroup]
+      GroupId: !GetAtt VPC.DefaultSecurityGroup
       IpProtocol: tcp
       FromPort: 22
       ToPort: 22
@@ -219,6 +219,10 @@ Outputs:
   VPC:
     Description: A reference to the created VPC
     Value: !Ref VPC
+
+  VPCDefaultSecurityGroup:
+    Description: Default VPC Security Group
+    Value: !GetAtt VPC.DefaultSecurityGroup
 
   PublicSubnets:
     Description: A list of the public subnets
