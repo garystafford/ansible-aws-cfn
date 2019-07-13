@@ -45,8 +45,8 @@ Resources:
         - Key: Name
           Value: !Ref EnvironmentName
 
-  VPCDefaultSecurityGroupIngress:
-    Type: AWS::EC2::SecurityGroupIngress
+  VPCDefaultSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
     Properties:
       GroupId: !GetAtt [VPC, DefaultSecurityGroup]
       SecurityGroupIngress:
