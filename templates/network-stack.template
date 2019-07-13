@@ -54,7 +54,7 @@ Resources:
       FromPort: 22
       ToPort: 22
 
-  VpcDefaultSecurityGroupIngress1:
+  VpcDefaultSecurityGroupIngress2:
     Type: AWS::EC2::SecurityGroupIngress
     Properties:
       GroupId: !GetAtt VPC.DefaultSecurityGroup
