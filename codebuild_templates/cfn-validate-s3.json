@@ -13,7 +13,14 @@
     },
     "secondarySources": [],
     "artifacts": {
-        "type": "NO_ARTIFACTS"
+        "type": "S3",
+        "location": "gaystafford_cloud_formation",
+        "path": "",
+        "namespaceType": "NONE",
+        "name": "cf_demo",
+        "packaging": "NONE",
+        "overrideArtifactName": false,
+        "encryptionDisabled": false
     },
     "secondaryArtifacts": [],
     "cache": {
