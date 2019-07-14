@@ -1,9 +1,5 @@
 version: 0.2
 
-env:
-  parameter-store:
-    BUCKET_PATH: "/anisble_demo/template_bucket"
-
 phases:
   install:
     runtime-versions:
@@ -15,9 +11,6 @@ phases:
   build:
     commands:
       - sh buildspec_files/build.sh
-  post_build:
-    commands:
-      - aws s3 ls s3://$BUCKET_PATH
 
 artifacts:
   files:
