@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-#set -ex
+set -e
 
 for template in ./*.json
 do
