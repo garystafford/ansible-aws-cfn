@@ -14,7 +14,7 @@ phases:
       - cfn-lint -v
   build:
     commands:
-      - sh code_build/build.sh
+      - sh buildspec_files/build.sh
   post_build:
     commands:
       - aws s3 ls s3://$BUCKET_PATH
