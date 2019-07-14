@@ -1,5 +1,5 @@
 {
-    "name": "cfn-validate-s3-test",
+    "name": "cfn-validate-s3",
     "description": "Validate CloudFormation templates and copies to s3",
     "source": {
         "type": "CODECOMMIT",
