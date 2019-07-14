@@ -18,3 +18,9 @@ phases:
   post_build:
     commands:
       - aws s3 ls s3://$BUCKET_PATH
+
+artifacts:
+  files:
+    - '**/*'
+  base-directory: 'cfn_templates'
+  discard-paths: yes

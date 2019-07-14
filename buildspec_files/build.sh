@@ -11,8 +11,8 @@ do
     aws cloudformation validate-template --template-body file://${filename};
 done
 
-# copy all templates if all linting passes
-for filename in cfn_templates/*.*
-do
-    aws s3 cp ${filename} s3://${BUCKET_PATH}
-done
+## copy all templates if all linting passes
+#for filename in cfn_templates/*.*
+#do
+#    aws s3 cp ${filename} s3://${BUCKET_PATH}
+#done
