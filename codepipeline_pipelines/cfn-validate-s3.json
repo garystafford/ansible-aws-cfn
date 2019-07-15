@@ -11,7 +11,7 @@
         "name": "Source",
         "actions": [
           {
-            "name": "Source",
+            "name": "CodeCommit",
             "actionTypeId": {
               "category": "Source",
               "owner": "AWS",
@@ -40,7 +40,7 @@
           {
             "name": "Build",
             "actionTypeId": {
-              "category": "Build",
+              "category": "CodeBuild",
               "owner": "AWS",
               "provider": "CodeBuild",
               "version": "1"
@@ -67,7 +67,7 @@
         "name": "Deploy",
         "actions": [
           {
-            "name": "DeployS3",
+            "name": "S3",
             "actionTypeId": {
               "category": "Deploy",
               "owner": "AWS",
