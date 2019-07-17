@@ -568,6 +568,63 @@
         }
       }
     },
+    "CloudWatchAccessRole": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Principal": {
+                "Service": [
+                  "ec2.amazonaws.com"
+                ]
+              },
+              "Action": [
+                "sts:AssumeRole"
+              ]
+            }
+          ]
+        },
+        "Path": "/"
+      }
+    },
+    "CloudWatchRolePolicies": {
+      "Type": "AWS::IAM::Policy",
+      "Properties": {
+        "PolicyName": "CloudWatchAccess",
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Action": [
+                  "logs:CreateLogStream",
+                  "logs:DescribeLogStreams",
+                  "logs:CreateLogGroup",
+                  "logs:PutLogEvents"
+              ],
+              "Resource": "*"
+            }
+          ]
+        },
+        "Roles": [
+          {
+            "Ref": "CloudWatchAccessRole"
+          }
+        ]
+      }
+    },
+    "CloudWatchInstanceProfile": {
+      "Type": "AWS::IAM::InstanceProfile",
+      "Properties": {
+        "Path": "/",
+        "Roles": [
+          {
+            "Ref": "CloudWatchAccessRole"
+          }
+        ]
+      }
+    },
     "LaunchConfig": {
       "Type": "AWS::AutoScaling::LaunchConfiguration",
       "Metadata": {
@@ -671,6 +728,7 @@
         "KeyName": {
           "Ref": "KeyName"
         },
+        "IamInstanceProfile": { "Ref": "CloudWatchInstanceProfile" },
         "UserData": {
           "Fn::Base64": {
             "Fn::Join": [
