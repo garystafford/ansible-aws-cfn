@@ -480,7 +480,7 @@ Resources:
         02_config-amazon-cloudwatch-agent:
           files:
             /opt/aws/amazon-cloudwatch-agent/etc/amazon-cloudwatch-agent.json:
-              content: !Sub |
+              content: |
                 {
                   "metrics": {
                     "append_dimensions": {
@@ -518,7 +518,7 @@ Resources:
         01_setupCfnHup:
           files:
             /etc/cfn/cfn-hup.conf:
-              content: !Sub |
+              content: |
                 [main]
                 stack=${AWS::StackId}
                 region=${AWS::Region}
@@ -543,7 +543,7 @@ Resources:
               owner: root
               group: root
             /lib/systemd/system/cfn-hup.service:
-              content: !Sub |
+              content: |
                 [Unit]
                 Description=cfn-hup daemon
                 [Service]
@@ -554,10 +554,10 @@ Resources:
                 WantedBy=multi-user.target
           commands:
             01enable_cfn_hup:
-              command: !Sub |
+              command: |
                 systemctl enable cfn-hup.service
             02start_cfn_hup:
-              command: !Sub |
+              command: |
                 systemctl start cfn-hup.service
     Properties:
       ImageId: !FindInMap
