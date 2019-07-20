@@ -4,7 +4,7 @@ Description:
   route on the public subnets. It deploys a pair of NAT Gateways (one in each AZ),
   and default routes for them in the private subnets.
 Parameters:
-  EnvironmentName:
+  TagEnv:
     Description: An environment name that will be prefixed to resource names
     Type: String
   VpcCIDR:
@@ -41,7 +41,7 @@ Resources:
       EnableDnsHostnames: true
       Tags:
         - Key: Name
-          Value: !Ref EnvironmentName
+          Value: !Sub ${TagEnv} VPC
   VpcDefaultSecurityGroupIngress1:
     Type: AWS::EC2::SecurityGroupIngress
     Properties:
@@ -63,7 +63,7 @@ Resources:
     Properties:
       Tags:
         - Key: Name
-          Value: !Ref EnvironmentName
+          Value: !Sub ${TagEnv} Internet Gateway
   InternetGatewayAttachment:
     Type: AWS::EC2::VPCGatewayAttachment
     Properties:
@@ -78,7 +78,7 @@ Resources:
       MapPublicIpOnLaunch: true
       Tags:
         - Key: Name
-          Value: !Sub ${EnvironmentName} Public Subnet (AZ1)
+          Value: !Sub ${TagEnv} Public Subnet (AZ1)
   PublicSubnet2:
     Type: AWS::EC2::Subnet
     Properties:
@@ -88,7 +88,7 @@ Resources:
       MapPublicIpOnLaunch: true
       Tags:
         - Key: Name
-          Value: !Sub ${EnvironmentName} Public Subnet (AZ2)
+          Value: !Sub ${TagEnv} Public Subnet (AZ2)
   PrivateSubnet1:
     Type: AWS::EC2::Subnet
     Properties:
@@ -98,7 +98,7 @@ Resources:
       MapPublicIpOnLaunch: false
       Tags:
         - Key: Name
-          Value: !Sub ${EnvironmentName} Private Subnet (AZ1)
+          Value: !Sub ${TagEnv} Private Subnet (AZ1)
   PrivateSubnet2:
     Type: AWS::EC2::Subnet
     Properties:
@@ -108,7 +108,7 @@ Resources:
       MapPublicIpOnLaunch: false
       Tags:
         - Key: Name
-          Value: !Sub ${EnvironmentName} Private Subnet (AZ2)
+          Value: !Sub ${TagEnv} Private Subnet (AZ2)
   NatGateway1EIP:
     Type: AWS::EC2::EIP
     DependsOn: InternetGatewayAttachment
@@ -135,7 +135,7 @@ Resources:
       VpcId: !Ref VPC
       Tags:
         - Key: Name
-          Value: !Sub ${EnvironmentName} Public Routes
+          Value: !Sub ${TagEnv} Public Routes
   DefaultPublicRoute:
     Type: AWS::EC2::Route
     DependsOn: InternetGatewayAttachment
@@ -159,7 +159,7 @@ Resources:
       VpcId: !Ref VPC
       Tags:
         - Key: Name
-          Value: !Sub ${EnvironmentName} Private Routes (AZ1)
+          Value: !Sub ${TagEnv} Private Routes (AZ1)
   DefaultPrivateRoute1:
     Type: AWS::EC2::Route
     Properties:
@@ -177,7 +177,7 @@ Resources:
       VpcId: !Ref VPC
       Tags:
         - Key: Name
-          Value: !Sub ${EnvironmentName} Private Routes (AZ2)
+          Value: !Sub ${TagEnv} Private Routes (AZ2)
   DefaultPrivateRoute2:
     Type: AWS::EC2::Route
     Properties:
