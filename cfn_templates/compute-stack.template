@@ -438,7 +438,7 @@ Resources:
       VPCZoneIdentifier: !Ref Subnets
       LaunchConfigurationName: !Ref LaunchConfig
       MinSize: '2'
-      MaxSize: '2'
+      MaxSize: '4'
       TargetGroupARNs:
         - !Ref ALBTargetGroup
       Tags:
@@ -454,6 +454,7 @@ Resources:
     CreationPolicy:
       ResourceSignal:
         Timeout: PT15M
+        Count: 2
     UpdatePolicy:
       AutoScalingRollingUpdate:
         MinInstancesInService: 1
@@ -618,10 +619,6 @@ Resources:
            rpm -Uvh https://s3.amazonaws.com/amazoncloudwatch-agent/amazon_linux/amd64/latest/amazon-cloudwatch-agent.rpm
            /opt/aws/bin/cfn-init -v --stack ${AWS::StackId} --resource LaunchConfig --region ${AWS::Region} --configsets default
            /opt/aws/bin/cfn-signal -e $? --stack ${AWS::StackId} --resource WebServerGroup --region ${AWS::Region}
-    CreationPolicy:
-      ResourceSignal:
-        Count: 1
-        Timeout: PT15M
   ApplicationLoadBalancer:
     Type: 'AWS::ElasticLoadBalancingV2::LoadBalancer'
     Properties:
