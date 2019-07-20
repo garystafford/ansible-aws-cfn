@@ -611,12 +611,6 @@ Resources:
       InstanceType: !Ref InstanceType
       KeyName: !Ref KeyName
       IamInstanceProfile: !Ref CloudWatchInstanceProfile
-      MetricsCollection:
-          -
-            Granularity: "1Minute"
-            Metrics:
-              - "GroupMinSize"
-              - "GroupMaxSize"
       UserData: !Base64
         # This script below is to install AmazonCloudWatchAgent, restart AmazonCloudWatchAgent and tell the result to cloudformation.
         Fn::Base64: !Sub |
