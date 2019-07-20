@@ -230,7 +230,6 @@ Resources:
               command: !Sub |
                 systemctl start cfn-hup.service
     Properties:
-      Properties:
       ImageId: !Ref LatestAmiId
       SecurityGroups:
         - !Ref InstanceSecurityGroup
