@@ -1,8 +1,8 @@
 AWSTemplateFormatVersion: 2010-09-09
 Description: >-
   Create a load balanced, auto-scaled set of EC2 instances, which are locked
-  down to only accept traffic from the load balancer. This example creates an
-  Auto Scaling group behind a load balancer with a simple health check.
+  down to only accept traffic from the ALB. This example creates an
+  Auto Scaling group behind a ALB with a simple health check.
 Parameters:
   VpcId:
     Type: 'AWS::EC2::VPC::Id'
@@ -16,7 +16,7 @@ Parameters:
       two different availability zones. They should be residing in the selected
       Virtual Private Cloud.
   InstanceType:
-    Description: WebServer EC2 instance type
+    Description: EC2 instance type for Web Servers
     Type: String
     Default: t2.small
     AllowedValues:
