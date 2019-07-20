@@ -533,6 +533,22 @@ Resources:
                         ]
                       }
                     }
+                  },
+                  "logs": {
+                    "logs_collected": {
+                      "files": {
+                        "collect_list": [
+                          {
+                            "file_path": "/opt/aws/amazon-cloudwatch-agent/logs/amazon-cloudwatch-agent.log",
+                            "log_group_name": "amazon-cloudwatch-agent.log",
+                            "log_stream_name": "amazon-cloudwatch-agent.log",
+                            "timezone": "UTC"
+                          }
+                        ]
+                      }
+                    },
+                    "log_stream_name": "my_log_stream_name",
+                    "force_flush_interval" : 15
                   }
                 }
         # Invoke amazon-cloudwatch-agent-ctl to restart the AmazonCloudWatchAgent.
@@ -559,7 +575,7 @@ Resources:
                content: !Sub |
                  [cfn-auto-reloader-hook]
                  triggers=post.update
-                 path=Resources.EC2Instance.Metadata.AWS::CloudFormation::Init.02_config-amazon-cloudwatch-agent
+                 path=Resources.LaunchConfig.Metadata.AWS::CloudFormation::Init.02_config-amazon-cloudwatch-agent
                  action=/opt/aws/bin/cfn-init -v --stack ${AWS::StackId} --resource LaunchConfig --region ${AWS::Region} --configsets UpdateEnvironment
                  runas=root
                mode: '000400'
