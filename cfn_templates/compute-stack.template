@@ -30,7 +30,7 @@ Parameters:
     ConstraintDescription: must be a valid EC2 instance type.
   LatestAmiId:
     Type: 'AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>'
-    Default: /aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2
+    Default: /aws/service/ami-amazon-linux-latest/amzn-ami-hvm-x86_64-gp2
   KeyName:
     Description: Name of an existing EC2 KeyPair to enable SSH access to the instances
     Type: 'AWS::EC2::KeyPair::KeyName'
@@ -87,62 +87,64 @@ Resources:
     CreationPolicy:
       ResourceSignal:
         Timeout: PT15M
-        Count: 2
     UpdatePolicy:
       AutoScalingRollingUpdate:
         MinInstancesInService: 1
         MaxBatchSize: 1
         PauseTime: PT15M
         WaitOnResourceSignals: true
-  CloudWatchAccessRole:
-    Type: 'AWS::IAM::Role'
-    Properties:
-      AssumeRolePolicyDocument:
-        Statement:
-          - Effect: Allow
-            Principal:
-              Service:
-                - ec2.amazonaws.com
-            Action:
-              - 'sts:AssumeRole'
-      Path: /
-  CloudWatchRolePolicies:
-    Type: 'AWS::IAM::Policy'
-    Properties:
-      PolicyName: CloudWatchAccess
-      PolicyDocument:
-        Statement:
-          - Effect: Allow
-            Action:
-              - 'cloudwatch:PutMetricData'
-              - 'ec2:DescribeTags'
-              - 'logs:DescribeLogGroups'
-              - 'logs:CreateLogStream'
-              - 'logs:DescribeLogStreams'
-              - 'logs:CreateLogGroup'
-              - 'logs:PutLogEvents'
-            Resource: '*'
-      Roles:
-        - !Ref CloudWatchAccessRole
-  CloudWatchInstanceProfile:
-    Type: 'AWS::IAM::InstanceProfile'
-    Properties:
-      Path: /
-      Roles:
-        - !Ref CloudWatchAccessRole
   LaunchConfig:
     Type: 'AWS::AutoScaling::LaunchConfiguration'
+    Metadata:
+      Comment: Install a simple application
+      'AWS::CloudFormation::Init':
+        config:
+          packages: {}
+          files:
+            /etc/cfn/cfn-hup.conf:
+              content: |
+                [main]
+                stack=${AWS::StackId}
+                region=${AWS::Region}
+                interval=1
+              mode: '000400'
+              owner: root
+              group: root
+            /etc/cfn/hooks.d/cfn-auto-reloader.conf:
+              content: !Sub >
+                [cfn-auto-reloader-hook]
+
+                triggers=post.update
+
+                path=Resources.LaunchConfig.Metadata.AWS::CloudFormation::Init
+
+                action=/opt/aws/bin/cfn-init -v --stack ${AWS::StackId}
+                --resource LaunchConfig --region ${AWS::Region}
+
+                runas=root
+              mode: '000400'
+              owner: root
+              group: root
+          services:
+            sysvinit:
+              cfn-hup:
+                enabled: 'true'
+                ensureRunning: 'true'
+                files:
+                  - /etc/cfn/cfn-hup.conf
+                  - /etc/cfn/hooks.d/cfn-auto-reloader.conf
     Properties:
       ImageId: !Ref LatestAmiId
       SecurityGroups:
         - !Ref InstanceSecurityGroup
       InstanceType: !Ref InstanceType
       KeyName: !Ref KeyName
-      IamInstanceProfile: !Ref CloudWatchInstanceProfile
       UserData: !Base64
         'Fn::Base64':
           'Fn::Sub': >
-            #!/bin/bash -x
+            #!/bin/bash -xe
+
+            yum update -y aws-cfn-bootstrap
 
             /opt/aws/bin/cfn-init -v --stack ${AWS::StackName} --resource
             LaunchConfiguration --region ${AWS::Region}
