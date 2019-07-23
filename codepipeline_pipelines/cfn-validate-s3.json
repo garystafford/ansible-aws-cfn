@@ -1,6 +1,6 @@
 {
   "pipeline": {
-    "name": "cfn-validate-s3-pipeline",
+    "name": "cfn-validate-s3",
     "roleArn": "arn:aws:iam::931066906971:role/service-role/AWSCodePipelineServiceRole-us-east-1-cfn-validate-s3",
     "artifactStore": {
       "type": "S3",
