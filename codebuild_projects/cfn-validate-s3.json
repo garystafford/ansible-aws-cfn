@@ -14,7 +14,7 @@
     "secondarySources": [],
     "artifacts": {
         "type": "S3",
-        "location": "gaystafford_cloud_formation",
+        "location": "garystafford_cloud_formation",
         "path": "",
         "namespaceType": "NONE",
         "name": "cf_demo",

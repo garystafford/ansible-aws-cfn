@@ -76,7 +76,7 @@
             },
             "runOrder": 1,
             "configuration": {
-              "BucketName": "gaystafford_cloud_formation",
+              "BucketName": "garystafford_cloud_formation",
               "Extract": "true",
               "ObjectKey": "cf_demo"
             },
